@@ -50,17 +50,17 @@ typedef enum
 ### LED基本知识
 
 &emsp;&emsp;发光二极管（Light Emitting Diode），是一种能够将电能转化为可见光的固态半导休器件，当电流流过LED时就会产生可视的光，LED的发光强度与通过LED的电流成正比如图5-1所示。目前常用的LED有红色、黄色、蓝色等。
-![LED工作原理](/figures/led.png)
+![LED工作原理](../figures/led.png)
 
 ### LED电路介绍
 &emsp;&emsp;LED电路连接图如下所示，四个LED分别连接到STM32F103的PE8、PE9、PE10和PE11引脚，并通过510欧姆的电阻进行限流。
 
-![led电路图](/figures/led1-sch.png)
+![led电路图](../figures/led1-sch.png)
 ### 按键 ###
 &emsp;&emsp;按键即开关，指一个可以使电路开路，使电流中断的电子元件，
 ### 按键电路介绍 ###
 &emsp;&emsp;开发套件配有四个按键，分别连接到STM32F103的PE2、PE3、PE4和PE5引脚，并通过10K电阻进行上拉，在设计中，上位电阻可以省去，不过在编程时得把对应引脚软件配置为内部上拉
-![按键电路图](/figures/key-sch.png)
+![按键电路图](../figures/key-sch.png)
 
 ### 蜂鸣器介绍 ###
 
@@ -68,7 +68,7 @@ typedef enum
 
 ### 蜂鸣器电路介绍 ###
 &emsp;&emsp;开发套件中配有一个有源蜂鸣器，与STM32F103的PE1连接。并通过三极管进行驱动。
-![蜂鸣器电路图](/figures/beep-sch.png) 
+![蜂鸣器电路图](../figures/beep-sch.png) 
 
 
 ## GPIO硬件相关函数
@@ -164,7 +164,7 @@ void rt_hw_led_on(rt_uint32_t n)
 
 ## 驱动模型
 &emsp;&emsp;下图显示了led模块的程序接口，给应用程序提供3个接口函数，`led_init()、led_on()、led_off()`分别实现对led1、led2、led3、led4的初始化和led点亮和熄灭操作。
-![led驱动抽象框图](/figures/led-control-mode.png)
+![led驱动抽象框图](../figures/led-control-mode.png)
 &emsp;&emsp;`rt_hw_led_init()`完成对led1、led2、led3、led4硬件的初始化；在实例中，应用应用到了STM32的GPIO功能，所以在初始化过程中首先要将GPIOE的时钟进行使能。
 
 ```c
